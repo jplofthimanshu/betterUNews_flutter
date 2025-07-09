@@ -176,6 +176,12 @@
       "languageVersion": "3.3"
     },
     {
+      "name": "persistent_bottom_nav_bar",
+      "rootUri": "file:///Users/admin/.pub-cache/hosted/pub.dev/persistent_bottom_nav_bar-6.2.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "petitparser",
       "rootUri": "file:///Users/admin/.pub-cache/hosted/pub.dev/petitparser-6.1.0",
       "packageUri": "lib/",

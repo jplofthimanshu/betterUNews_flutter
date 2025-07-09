@@ -1,6 +1,7 @@
 import 'package:better_u_news/app/routes/route_names.dart';
 import 'package:better_u_news/view/authentication/LoginFlow/forgotpassword_screen.dart';
 import 'package:better_u_news/view/authentication/LoginFlow/login_screen.dart';
+import 'package:better_u_news/view/authentication/LoginFlow/resetpassword_Screen.dart';
 import 'package:better_u_news/view/authentication/birthdate_screen.dart';
 import 'package:better_u_news/view/authentication/chathistoryoverlay_screen.dart';
 import 'package:better_u_news/view/authentication/choosestate_screen.dart';
@@ -9,6 +10,7 @@ import 'package:better_u_news/view/authentication/signup_screen.dart';
 import 'package:better_u_news/view/authentication/splash_screen.dart';
 import 'package:better_u_news/view/authentication/verifyotp_screen.dart';
 import 'package:better_u_news/view/authentication/welcome_screen.dart';
+import 'package:better_u_news/view/dashboard/tabbar_screen.dart';
 import 'package:get/get.dart';
 
 class AppRoutes {
@@ -71,6 +73,18 @@ class AppRoutes {
     GetPage(
         name: RoutesName.forgotPasswordScreen,
         page: () => ForgotpasswordScreen(),
+        transition: Transition.fadeIn
+    ),
+
+    GetPage(
+        name: RoutesName.resetPasswordScreen,
+        page: () => ResetpasswordScreen(),
+        transition: Transition.fadeIn
+    ),
+
+    GetPage(
+        name: RoutesName.tabBarScreen,
+        page: () => TabbarScreen(),
         transition: Transition.fadeIn
     ),
   ];

@@ -164,7 +164,6 @@ class _LoginScreenState extends State<LoginScreen> {
                       }),
 
                       SizedBox(height: 20),
-
                       Obx(() {
                         return Column(
                           children: [
@@ -208,7 +207,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         fontSize: 17,
                         title: 'Continue',
                         onPressed: () {
-                          Get.toNamed(RoutesName.verifyOTPScreen);
+                          Get.offAllNamed(RoutesName.tabBarScreen);
                         },
                       ),
 

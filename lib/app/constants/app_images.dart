@@ -13,6 +13,21 @@ class AppImages {
   static const String voiceAnimation_image = 'assets/images/voiceAnimation.svg';
   static const String close_image = 'assets/images/close.svg';
   static const String searchIcon_image = 'assets/images/searchIcon.svg';
+  static const String file_image = 'assets/images/file.svg';
 
+
+  static const String bell_image = 'assets/images/bell.svg';
+  static const String profile_image = 'assets/images/profile.svg';
+  static const String aurascore_image = 'assets/images/aurascore.png';
+  static const String arrowline_image = 'assets/images/arrowline.svg';
+
+
+
+
+  static const String home_tab = 'assets/images/home_tab.svg';
+  static const String journey_tab = 'assets/images/journey_tab.svg';
+  static const String mira_tab = 'assets/images/mira_tab.svg';
+  static const String programs_tab = 'assets/images/programs_tab.svg';
+  static const String shop_tab = 'assets/images/shop_tab.svg';
 
 }

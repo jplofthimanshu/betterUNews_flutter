@@ -13,6 +13,7 @@
         "flutter_svg",
         "get",
         "otp",
+        "persistent_bottom_nav_bar",
         "pinput"
       ],
       "devDependencies": [
@@ -53,6 +54,13 @@
         "test_api",
         "vector_math",
         "vm_service"
+      ]
+    },
+    {
+      "name": "persistent_bottom_nav_bar",
+      "version": "6.2.1",
+      "dependencies": [
+        "flutter"
       ]
     },
     {
