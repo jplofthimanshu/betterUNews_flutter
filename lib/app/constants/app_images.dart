@@ -1,0 +1,18 @@
+class AppImages {
+  static const String spashscreen_bg_image = 'assets/images/Spashscreen_bg.svg';
+  static const String betterulogo_image = 'assets/images/betterulogo.svg';
+  static const String rightArrow_image = 'assets/images/rightArrow.svg';
+  static const String google_image = 'assets/images/google.svg';
+  static const String facebook_image = 'assets/images/facebook.svg';
+  static const String backArrow_image = 'assets/images/backArrow.svg';
+  static const String checkbox_image = 'assets/images/Checkbox.svg';
+  static const String calander_image = 'assets/images/calander.svg';
+  static const String menu_image = 'assets/images/menu.svg';
+  static const String mic_image = 'assets/images/mic.svg';
+  static const String uploadImage_image = 'assets/images/uploadImage.svg';
+  static const String voiceAnimation_image = 'assets/images/voiceAnimation.svg';
+  static const String close_image = 'assets/images/close.svg';
+  static const String searchIcon_image = 'assets/images/searchIcon.svg';
+
+
+}
