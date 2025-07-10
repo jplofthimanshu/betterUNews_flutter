@@ -1,11 +1,13 @@
 import 'package:better_u_news/app/constants/app_colors.dart';
 import 'package:better_u_news/app/constants/app_fonts.dart';
 import 'package:better_u_news/app/constants/app_images.dart';
+import 'package:better_u_news/app/routes/route_names.dart';
 import 'package:better_u_news/view/app_component/action_button.dart';
 import 'package:better_u_news/view/app_component/action_button_icon.dart';
 import 'package:better_u_news/view/app_component/lato_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 
 class HometabScreen extends StatefulWidget {
   const HometabScreen({super.key});
@@ -27,7 +29,9 @@ class _HometabScreenState extends State<HometabScreen> {
             highlightColor: Colors.transparent,
             hoverColor: Colors.transparent,
             overlayColor: MaterialStateProperty.all(Colors.transparent),
-            onTap: () {},
+            onTap: () {
+              Get.toNamed(RoutesName.accountScreen);
+            },
             child: Container(
               alignment: Alignment.centerLeft,
               padding: const EdgeInsets.only(right: 16),
@@ -818,9 +822,37 @@ class _HometabScreenState extends State<HometabScreen> {
                   ),
                 ),
 
-                SizedBox(height: 16),
+
+                SizedBox(height: 32),
                 Container(
-                  height: 245,
+                  padding: EdgeInsets.symmetric(horizontal: 12),
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          LatoText(
+                            title: 'Trending Now',
+                            fontFamily: FontFamily.LatoSemibold,
+                            fontSize: 20,
+                            color: AppColor.clr_000000,
+                          ),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          LatoText(
+                              title: 'April 1',
+                              fontFamily: FontFamily.LatoSemibold,
+                              fontSize: 17,
+                              color: AppColor.clr_000000.withOpacity(0.4)
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  height: 200,
                   padding: EdgeInsets.symmetric(horizontal: 12, vertical: 16),
                   decoration: BoxDecoration(
                     gradient: const LinearGradient(
@@ -847,10 +879,10 @@ class _HometabScreenState extends State<HometabScreen> {
                     scrollDirection: Axis.horizontal,
                     itemCount: 10,
                     itemBuilder: (context, index) => Container(
-                      height: 205,
+                      height: 155,
                       width: 135,
                       margin: EdgeInsets.only(right: 8),
-                      padding: EdgeInsets.symmetric(horizontal: 12,vertical: 12),
+                      padding: EdgeInsets.symmetric(horizontal: 0,vertical: 0),
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(12),
                           color: AppColor.clr_000000.withOpacity(0.1)
@@ -860,27 +892,40 @@ class _HometabScreenState extends State<HometabScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           SizedBox(),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                          Stack(
                             children: [
-                              LatoText(
-                                title: 'Session 1',
-                                fontSize: 12,
-                                color: AppColor.clr_F6F4F1,
-                                fontFamily: FontFamily.LatoBold,
+                              SvgPicture.asset(
+                                AppImages.shadow_3_image,
+                                height: 68,
+                                width: double.maxFinite,
+                                fit: BoxFit.fill,
                               ),
-                              LatoText(
-                                title: 'Heal',
-                                fontSize: 16,
-                                color: AppColor.clr_F6F4F1,
-                                fontFamily: FontFamily.LatoBold,
+                              Container(
+                                padding: EdgeInsets.only(bottom: 16,left: 12,right: 12),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    LatoText(
+                                      title: 'Session 1',
+                                      fontSize: 12,
+                                      color: AppColor.clr_F6F4F1,
+                                      fontFamily: FontFamily.LatoBold,
+                                    ),
+                                    LatoText(
+                                      title: 'Heal',
+                                      fontSize: 16,
+                                      color: AppColor.clr_F6F4F1,
+                                      fontFamily: FontFamily.LatoBold,
+                                    ),
+                                    LatoText(
+                                      title: 'Ketamine Therapy',
+                                      fontSize: 12,
+                                      color: AppColor.clr_F6F4F1,
+                                      fontFamily: FontFamily.LatoBold,
+                                    )
+                                  ],
+                                ),
                               ),
-                              LatoText(
-                                title: 'Ketamine Therapy',
-                                fontSize: 12,
-                                color: AppColor.clr_F6F4F1,
-                                fontFamily: FontFamily.LatoBold,
-                              )
                             ],
                           ),
                         ],

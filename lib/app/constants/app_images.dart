@@ -15,22 +15,26 @@ class AppImages {
   static const String searchIcon_image = 'assets/images/searchIcon.svg';
   static const String file_image = 'assets/images/file.svg';
 
+  static const String rightArrow_Account_image = 'assets/images/rightArrow_Account.svg';
+
 
   static const String bell_image = 'assets/images/bell.svg';
   static const String profile_image = 'assets/images/profile.svg';
-  static const String aurascore_image = 'assets/images/aurascore.png';
+
   static const String arrowline_image = 'assets/images/arrowline.svg';
   static const String plus_image = 'assets/images/plus.svg';
   static const String shadow_image = 'assets/images/Shadow.svg';
   static const String shadow_D6CDC2_image = 'assets/images/Shadow_D6CDC2.svg';
   static const String vector_image = 'assets/images/Vector.svg';
-
-
+  static const String shadow_3_image = 'assets/images/Shadow_3.svg';
 
   static const String home_tab = 'assets/images/home_tab.svg';
   static const String journey_tab = 'assets/images/journey_tab.svg';
   static const String mira_tab = 'assets/images/mira_tab.svg';
   static const String programs_tab = 'assets/images/programs_tab.svg';
   static const String shop_tab = 'assets/images/shop_tab.svg';
+
+  static const String aurascore_image = 'assets/images/aurascore.png';
+  static const String userProfile_png = 'assets/images/userProfile.png';
 
 }

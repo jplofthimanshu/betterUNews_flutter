@@ -11,6 +11,7 @@ import 'package:better_u_news/view/authentication/splash_screen.dart';
 import 'package:better_u_news/view/authentication/verifyotp_screen.dart';
 import 'package:better_u_news/view/authentication/welcome_screen.dart';
 import 'package:better_u_news/view/dashboard/tabbar_screen.dart';
+import 'package:better_u_news/view/profile/account_screen.dart';
 import 'package:get/get.dart';
 
 class AppRoutes {
@@ -85,6 +86,12 @@ class AppRoutes {
     GetPage(
         name: RoutesName.tabBarScreen,
         page: () => TabbarScreen(),
+        transition: Transition.fadeIn
+    ),
+
+    GetPage(
+        name: RoutesName.accountScreen,
+        page: () => AccountScreen(),
         transition: Transition.fadeIn
     ),
   ];

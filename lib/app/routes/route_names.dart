@@ -13,4 +13,5 @@ class RoutesName {
   static const String resetPasswordScreen = '/resetPasswordScreen';
 
   static const String tabBarScreen = '/tabBarScreen';
+  static const String accountScreen = '/accountScreen';
 }
