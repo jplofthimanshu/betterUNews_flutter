@@ -1,10 +1,7 @@
 import 'package:better_u_news/app/constants/app_colors.dart';
 import 'package:better_u_news/app/constants/app_fonts.dart';
 import 'package:better_u_news/app/constants/app_images.dart';
-import 'package:better_u_news/app/routes/route_names.dart';
-import 'package:better_u_news/view/app_component/action_button.dart';
 import 'package:better_u_news/view/app_component/lato_text.dart';
-import 'package:better_u_news/viewmodel/controller/authentication_controller/choosestate_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';

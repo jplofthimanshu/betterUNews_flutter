@@ -1,4 +1,3 @@
-import 'package:better_u_news/app/routes/app_routes.dart';
 import 'package:better_u_news/app/routes/route_names.dart';
 import 'package:get/get.dart';
 
@@ -11,6 +10,4 @@ class SplashController extends GetxController {
       Get.offNamed(RoutesName.welcomeScreen);
     });
   }
-
-
 }

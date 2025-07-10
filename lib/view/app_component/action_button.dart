@@ -1,47 +1,52 @@
+import 'package:flutter/material.dart';
 import 'package:better_u_news/app/constants/app_colors.dart';
 import 'package:better_u_news/app/constants/app_fonts.dart';
 import 'package:better_u_news/view/app_component/lato_text.dart';
-import 'package:flutter/material.dart';
 
+/// A customizable action button with consistent styling across the app.
 class ActionButton extends StatelessWidget {
-
   final double btnHeight;
-  final FontFamily fontFamily;
   final double fontSize;
   final String title;
   final Color textColor;
+  final Color buttonColor;
+  final FontFamily fontFamily;
   final VoidCallback onPressed;
 
   const ActionButton({
     super.key,
     required this.btnHeight,
-    required this.fontFamily,
     required this.fontSize,
     required this.title,
+    required this.fontFamily,
+    required this.onPressed,
     this.textColor = AppColor.clr_FFFFFF,
-    required this.onPressed
+    this.buttonColor = AppColor.clr_000000,
   });
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onPressed,
-      child: Container(
-        alignment: Alignment.center,
-        height: btnHeight,
-        width: double.maxFinite,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(btnHeight/2),
-          color: AppColor.clr_000000
+    return Material(
+      color: Colors.transparent, // Ensures ripple effect is visible
+      child: InkWell(
+        onTap: onPressed,
+        borderRadius: BorderRadius.circular(btnHeight / 2),
+        child: Container(
+          height: btnHeight,
+          width: double.infinity,
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+            color: buttonColor,
+            borderRadius: BorderRadius.circular(btnHeight / 2),
+          ),
+          child: LatoText(
+            title: title,
+            fontSize: fontSize,
+            fontFamily: fontFamily,
+            textAlign: TextAlign.center,
+            color: textColor,
+          ),
         ),
-        child: LatoText(
-          title: title,
-          fontSize: fontSize,
-          fontFamily: fontFamily,
-          textAlign: TextAlign.center,
-          color: textColor,
-        )
-
       ),
     );
   }

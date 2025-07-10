@@ -32,7 +32,7 @@ class _ChoosestateScreenState extends State<ChoosestateScreen> {
           splashColor: Colors.transparent,
           highlightColor: Colors.transparent,
           hoverColor: Colors.transparent,
-          overlayColor: MaterialStateProperty.all(Colors.transparent),
+          overlayColor: WidgetStateProperty.all(Colors.transparent),
           onTap: () {
             Get.back();
           },
@@ -47,10 +47,11 @@ class _ChoosestateScreenState extends State<ChoosestateScreen> {
             ),
           ),
         ),
+        centerTitle: true,
         title: LatoText(
           title: 'Getting started',
           fontFamily: FontFamily.LatoBold,
-          fontSize: 19,
+          fontSize: 20,
         ),
       ),
       body: Container(
@@ -154,7 +155,7 @@ class _ChoosestateScreenState extends State<ChoosestateScreen> {
                           TextSpan(
                             // no need for WidgetSpan unless you need a widget
                             text:
-                            'Telehealth Consent, HIPAA Consent, and Terms',
+                            'Telehealth Consent, HIPAA Consent,',
                             style: TextStyle(
                               fontFamily: FontFamily.LatoBold.value,
                               decoration: TextDecoration.underline,
@@ -163,7 +164,7 @@ class _ChoosestateScreenState extends State<ChoosestateScreen> {
                           ),
                           const TextSpan(text: ' and '),
                           TextSpan(
-                            text: 'Privacy Policy',
+                            text: 'Terms',
                             style: TextStyle(
                               fontFamily: FontFamily.LatoBold.value,
                               decoration: TextDecoration.underline,
@@ -176,7 +177,6 @@ class _ChoosestateScreenState extends State<ChoosestateScreen> {
                   ),
                 ],
               ),
-
               SizedBox(height: 25),
               ActionButton(
                 btnHeight: 52,

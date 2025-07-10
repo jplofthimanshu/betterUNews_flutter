@@ -41,7 +41,7 @@ class _VerifyotpScreenState extends State<VerifyotpScreen> {
           splashColor: Colors.transparent,
           highlightColor: Colors.transparent,
           hoverColor: Colors.transparent,
-          overlayColor: MaterialStateProperty.all(Colors.transparent),
+          overlayColor: WidgetStateProperty.all(Colors.transparent),
           onTap: () {
             Get.back();
           },
@@ -56,10 +56,11 @@ class _VerifyotpScreenState extends State<VerifyotpScreen> {
             ),
           ),
         ),
+        centerTitle: true ,
         title: LatoText(
           title: 'Getting started',
           fontFamily: FontFamily.LatoBold,
-          fontSize: 19,
+          fontSize: 20,
         ),
       ),
       body: Container(

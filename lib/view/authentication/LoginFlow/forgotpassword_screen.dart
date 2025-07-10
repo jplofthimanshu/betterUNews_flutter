@@ -20,7 +20,7 @@ class ForgotpasswordScreen extends StatefulWidget {
 
 class _ForgotpasswordScreenState extends State<ForgotpasswordScreen> {
 
-  ForgotpasswordController _loginController = Get.put(ForgotpasswordController());
+  final ForgotpasswordController _forgotpasswordController = Get.put(ForgotpasswordController());
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +32,7 @@ class _ForgotpasswordScreenState extends State<ForgotpasswordScreen> {
           splashColor: Colors.transparent,
           highlightColor: Colors.transparent,
           hoverColor: Colors.transparent,
-          overlayColor: MaterialStateProperty.all(Colors.transparent),
+          overlayColor: WidgetStateProperty.all(Colors.transparent),
           onTap: () {
             Get.back();
           },
@@ -83,7 +83,7 @@ class _ForgotpasswordScreenState extends State<ForgotpasswordScreen> {
 
               SizedBox(height: 32),
               AuthenticationTextfield(
-                controller: _loginController.emailCtrl.value,
+                controller: _forgotpasswordController.emailCtrl.value,
                 topLabel: 'Email',
                 placeholder: 'user@gmail.com',
               ),
@@ -98,8 +98,6 @@ class _ForgotpasswordScreenState extends State<ForgotpasswordScreen> {
                   Get.toNamed(RoutesName.resetPasswordScreen);
                 },
               ),
-
-
             ],
           ),
         ),

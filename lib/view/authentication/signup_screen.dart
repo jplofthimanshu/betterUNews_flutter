@@ -19,11 +19,12 @@ class SignupScreen extends StatefulWidget {
 }
 
 class _SignupScreenState extends State<SignupScreen> {
-  SignupController _signupController = Get.put(SignupController());
+  final SignupController _signupController = Get.put(SignupController());
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColor.clr_FFFFFF,
       body: Container(
         width: double.maxFinite,
         height: double.maxFinite,
@@ -116,8 +117,8 @@ class _SignupScreenState extends State<SignupScreen> {
                                           style: TextStyle(
                                             fontFamily: 'LatoRegular',
                                             fontSize: 16,
-                                            color: AppColor.clr_000000.withOpacity(
-                                              isEmail ? 1.0 : 0.55,
+                                            color: AppColor.clr_000000.withValues(
+                                              alpha: isEmail ? 1.0 : 0.55,
                                             ),
                                           ),
                                           child: const Text('Email'),
@@ -139,8 +140,8 @@ class _SignupScreenState extends State<SignupScreen> {
                                           style: TextStyle(
                                             fontFamily: 'LatoRegular',
                                             fontSize: 16,
-                                            color: AppColor.clr_000000.withOpacity(
-                                              isEmail ? 0.55 : 1.0,
+                                            color: AppColor.clr_000000.withValues(
+                                              alpha: isEmail ? 0.55 : 1.0,
                                             ),
                                           ),
                                           child: const Text('Phone'),
@@ -167,7 +168,7 @@ class _SignupScreenState extends State<SignupScreen> {
                                 placeholder: 'user@gmail.com',
                               ),
                             if (!_signupController.isEmailSelected.value)
-                              AuthenticationTextfield_PhoneNumber(
+                              AuthenticationTextfieldPhoneNumber(
                                 controller: _signupController.phoneCtrl.value,
                                 topLabel: 'Phone',
                                 placeholder: 'user@gmail.com',
@@ -183,7 +184,7 @@ class _SignupScreenState extends State<SignupScreen> {
                                     placeholder: 'Password',
                                     isPassword: true,
                                     isSecure: _signupController.passwordIsSecure.value,
-                                    passworSecure: () {
+                                    onToggleSecure: () {
                                       _signupController.passwordIsSecure.value = !_signupController.passwordIsSecure.value;
                                     },
                                   ),
@@ -286,44 +287,43 @@ class _SignupScreenState extends State<SignupScreen> {
                   ),
                 ),
               ),
-
-              Column(
-                children: [
-                  SizedBox(height: 30,),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      LatoText(title: 'Already have an account? ',fontSize: 16,fontFamily: FontFamily.LatoRegular,),
-                      InkWell(
-                        onTap: () {
-                          Get.toNamed(RoutesName.loginScreen);
-                        },
-                        child: ShaderMask(
-                          shaderCallback: (bounds) =>
-                              LinearGradient(
-                                colors: [Color(0xFF7F7ED8), Color(0xFFE2A19B)],
-                              ).createShader(
-                                Rect.fromLTWH(0, 0, bounds.width, bounds.height),
-                              ),
-                          child: Text(
-                            'Sign in',
-                            style: TextStyle(
-                              height: 1.2,
-                              fontSize: 16,
-                              fontFamily: FontFamily.LatoRegular.value,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 30,),
-                ],
-              ),
             ],
           ),
         ),
+      ),
+      bottomNavigationBar: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              LatoText(title: 'Already have an account? ',fontSize: 16,fontFamily: FontFamily.LatoRegular,),
+              InkWell(
+                onTap: () {
+                  Get.toNamed(RoutesName.loginScreen);
+                },
+                child: ShaderMask(
+                  shaderCallback: (bounds) =>
+                      LinearGradient(
+                        colors: [Color(0xFF7F7ED8), Color(0xFFE2A19B)],
+                      ).createShader(
+                        Rect.fromLTWH(0, 0, bounds.width, bounds.height),
+                      ),
+                  child: Text(
+                    'Sign in',
+                    style: TextStyle(
+                      height: 1.2,
+                      fontSize: 16,
+                      fontFamily: FontFamily.LatoRegular.value,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          SizedBox(height: 20,),
+        ],
       ),
     );
   }
