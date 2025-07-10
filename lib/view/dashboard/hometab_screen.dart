@@ -1,11 +1,11 @@
 import 'package:better_u_news/app/constants/app_colors.dart';
 import 'package:better_u_news/app/constants/app_fonts.dart';
 import 'package:better_u_news/app/constants/app_images.dart';
+import 'package:better_u_news/view/app_component/action_button.dart';
 import 'package:better_u_news/view/app_component/action_button_icon.dart';
 import 'package:better_u_news/view/app_component/lato_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:get/get.dart';
 
 class HometabScreen extends StatefulWidget {
   const HometabScreen({super.key});
@@ -229,7 +229,7 @@ class _HometabScreenState extends State<HometabScreen> {
                         spreadRadius: 0,
                       ),
                     ],
-                    borderRadius: BorderRadius.circular(0),
+                    borderRadius: BorderRadius.circular(16),
                   ),
                   child: Column(
                     children: [
@@ -423,6 +423,26 @@ class _HometabScreenState extends State<HometabScreen> {
                 SizedBox(height: 16),
                 Container(
                   padding: EdgeInsets.symmetric(horizontal: 12, vertical: 16),
+                  decoration: BoxDecoration(
+                    gradient: const LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [
+                        AppColor.clr_FEFEFE,
+                        AppColor.clr_FEFEFE, // top
+                        AppColor.clr_FFFFFF, // bottom
+                      ],
+                    ),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.03), // Shadow color
+                        offset: Offset(0, 20), // Only downward shadow
+                        blurRadius: 20, // Softness of shadow
+                        spreadRadius: 0,
+                      ),
+                    ],
+                    borderRadius: BorderRadius.circular(16),
+                  ),
                   child: Column(
                     children: [
                       Row(
@@ -504,17 +524,373 @@ class _HometabScreenState extends State<HometabScreen> {
                           ),
                         ],
                       ),
+                      SizedBox(height: 12),
                       ActionButtonIcon(
-                        btnHeight: 42,
+                        btnHeight: 44,
                         fontFamily: FontFamily.LatoBold,
                         fontSize: 17,
                         title: 'Add New Treatment',
-                        image: AppImages.rightArrow_image,
+                        image: AppImages.plus_image,
                         onPressed: () {},
                       )
                     ],
                   ),
                 ),
+
+                SizedBox(height: 16),
+                SizedBox(
+                  height: 340,
+                  child: PageView.builder(
+                    itemCount: 10,
+                    itemBuilder: (context, index) {
+                      return Container(
+                        clipBehavior: Clip.antiAlias,
+                        margin: EdgeInsets.symmetric(horizontal: 8),
+                        decoration: BoxDecoration(
+                          color: AppColor.clr_BBAEB7,
+                          borderRadius: BorderRadius.circular(16),
+                        ),
+                        child: Column(
+                          children: [
+                            Stack(
+                              children: [
+                                Image.asset(
+                                  'assets/images/img_2.png',
+                                  height: 175,
+                                  width: double.maxFinite,
+                                  fit: BoxFit.fill,
+                                ),
+                                Container(
+                                  height: 175,
+                                  padding: EdgeInsets.symmetric(vertical: 16,horizontal: 16),
+                                  child: Column(
+                                    children: [
+                                      Row(
+                                        children: [
+                                          Container(
+                                            padding: EdgeInsets.symmetric(horizontal: 12),
+                                            alignment: Alignment.center,
+                                            decoration: BoxDecoration(
+                                              color: AppColor.clr_F6F4F1,
+                                              borderRadius: BorderRadius.circular(3),
+                                            ),
+                                            height: 22,
+                                            child: LatoText(
+                                              title: 'Announcements',
+                                              fontSize: 12,
+                                              fontFamily: FontFamily.LatoBold,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      SizedBox(height: 12),
+                                      Row(
+                                        children: [
+                                          LatoText(
+                                            title: 'Announcement Header',
+                                            fontFamily: FontFamily.LatoSemibold,
+                                            fontSize: 20,
+                                            color: AppColor.clr_F6F4F1,
+                                          ),
+                                        ],
+                                      ),
+                                      Row(
+                                        children: [
+                                          LatoText(
+                                            title: 'Announcement Subheading',
+                                            fontFamily: FontFamily.LatoSemibold,
+                                            fontSize: 17,
+                                            color: AppColor.clr_F4F4F4.withOpacity(0.8)
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Positioned(
+                                  left: -1,
+                                  right: -1,
+                                  bottom: -1,
+                                  child: SvgPicture.asset(
+                                    AppImages.shadow_image,
+                                    height: 44,
+                                    width: double.maxFinite,
+                                    fit: BoxFit.fill,
+                                  ),
+                                )
+                              ],
+                            ),
+                            Container(
+                              padding: EdgeInsets.only(top: 8,left: 16,bottom: 16,right: 16),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  LatoText(
+                                    title: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. Impora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.',
+                                    fontFamily: FontFamily.LatoRegular,
+                                    fontSize: 16,
+                                    color: AppColor.clr_FDFDFD,
+                                  ),
+                                  SizedBox(height: 10),
+                                  ActionButton(btnHeight: 44, fontFamily: FontFamily.LatoBold, fontSize: 18, title: '#Call to Action#', onPressed: () {})
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      );
+                    },
+                  ),
+                ),
+
+                SizedBox(height: 16),
+                SizedBox(
+                  height: 515,
+                  child: PageView.builder(
+                    itemCount: 10,
+                    itemBuilder: (context, index) {
+                      return Container(
+                        clipBehavior: Clip.antiAlias,
+                        margin: EdgeInsets.symmetric(horizontal: 8),
+                        decoration: BoxDecoration(
+                          color: AppColor.clr_D6CDC2,
+                          borderRadius: BorderRadius.circular(16),
+                        ),
+                        child: Column(
+                          children: [
+                            Stack(
+                              children: [
+                                Image.asset(
+                                  'assets/images/img_3.png',
+                                  height: 270,
+                                  width: double.maxFinite,
+                                  fit: BoxFit.fill,
+                                ),
+                                Container(
+                                  height: 270,
+                                  padding: EdgeInsets.symmetric(vertical: 16,horizontal: 16),
+                                  child: Column(
+                                    children: [
+                                      Row(
+                                        children: [
+                                          Container(
+                                            padding: EdgeInsets.symmetric(horizontal: 12),
+                                            alignment: Alignment.center,
+                                            decoration: BoxDecoration(
+                                              color: AppColor.clr_F6F4F1,
+                                              borderRadius: BorderRadius.circular(3),
+                                            ),
+                                            height: 22,
+                                            child: LatoText(
+                                              title: 'Mental Health',
+                                              fontSize: 12,
+                                              fontFamily: FontFamily.LatoBold,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      SizedBox(height: 12),
+                                      Row(
+                                        children: [
+                                          LatoText(
+                                            title: 'Ketamine therapy for U',
+                                            fontFamily: FontFamily.LatoSemibold,
+                                            fontSize: 20,
+                                            color: AppColor.clr_F6F4F1,
+                                          ),
+                                        ],
+                                      ),
+                                      Row(
+                                        children: [
+                                          LatoText(
+                                              title: 'Rediscover yourself',
+                                              fontFamily: FontFamily.LatoSemibold,
+                                              fontSize: 17,
+                                              color: AppColor.clr_F4F4F4.withOpacity(0.8)
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Positioned(
+                                  left: -1,
+                                  right: -1,
+                                  bottom: -1,
+                                  child: SvgPicture.asset(
+                                    AppImages.shadow_D6CDC2_image,
+                                    height: 44,
+                                    width: double.maxFinite,
+                                    fit: BoxFit.fill,
+                                  ),
+                                )
+                              ],
+                            ),
+                            Container(
+                              height: 245,
+                              padding: EdgeInsets.only(top: 20,left: 16,bottom: 20,right: 16),
+                              child:  ListView.builder(
+                                scrollDirection: Axis.horizontal,
+                                itemCount: 10,
+                                itemBuilder: (context, index) => Container(
+                                  height: 205,
+                                  width: 135,
+                                  margin: EdgeInsets.only(right: 8),
+                                  padding: EdgeInsets.symmetric(horizontal: 12,vertical: 12),
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(12),
+                                      color: AppColor.clr_000000.withOpacity(0.1)
+                                  ),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Row(
+                                        children: [
+                                          Container(
+                                            padding: EdgeInsets.symmetric(horizontal: 12),
+                                            alignment: Alignment.center,
+                                            decoration: BoxDecoration(
+                                              borderRadius: BorderRadius.circular(3),
+                                              gradient: LinearGradient(
+                                                end: AlignmentDirectional(-0.8, 1.0), // Approx. bottom-left
+                                                begin: AlignmentDirectional(0.8, -1.0),   // Approx. top-right
+                                                colors: [
+                                                  Color.fromRGBO(168, 156, 155, 0.1),
+                                                  Color.fromRGBO(0, 0, 0, 0.2),
+                                                ],
+                                                stops: [-0.1035, 0.4489], // Note: Flutter expects values from 0 to 1, so negatives may be ignored
+                                              ),
+                                            ),
+                                            height: 22,
+                                            child: Row(
+                                              crossAxisAlignment: CrossAxisAlignment.center,
+                                              children: [
+                                                SvgPicture.asset(
+                                                  AppImages.vector_image,
+                                                  height: 12,
+                                                  width: 8,
+                                                ),
+                                                SizedBox(width: 4),
+                                                LatoText(
+                                                  title: '12 Slides',
+                                                  fontSize: 12,
+                                                  color: AppColor.clr_F6F4F1,
+                                                  fontFamily: FontFamily.LatoBold,
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          LatoText(
+                                            title: 'Session 1',
+                                            fontSize: 12,
+                                            color: AppColor.clr_F6F4F1,
+                                            fontFamily: FontFamily.LatoBold,
+                                          ),
+                                          LatoText(
+                                            title: 'Heal',
+                                            fontSize: 16,
+                                            color: AppColor.clr_F6F4F1,
+                                            fontFamily: FontFamily.LatoBold,
+                                          ),
+                                          LatoText(
+                                            title: 'Ketamine Therapy',
+                                            fontSize: 12,
+                                            color: AppColor.clr_F6F4F1,
+                                            fontFamily: FontFamily.LatoBold,
+                                          )
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      );
+                    },
+                  ),
+                ),
+
+                SizedBox(height: 16),
+                Container(
+                  height: 245,
+                  padding: EdgeInsets.symmetric(horizontal: 12, vertical: 16),
+                  decoration: BoxDecoration(
+                    gradient: const LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [
+                        AppColor.clr_FEFEFE,
+                        AppColor.clr_FEFEFE, // top
+                        AppColor.clr_FFFFFF, // bottom
+                      ],
+                    ),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.03), // Shadow color
+                        offset: Offset(0, 20), // Only downward shadow
+                        blurRadius: 20, // Softness of shadow
+                        spreadRadius: 0,
+                      ),
+                    ],
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+
+                  child:  ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: 10,
+                    itemBuilder: (context, index) => Container(
+                      height: 205,
+                      width: 135,
+                      margin: EdgeInsets.only(right: 8),
+                      padding: EdgeInsets.symmetric(horizontal: 12,vertical: 12),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(12),
+                          color: AppColor.clr_000000.withOpacity(0.1)
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SizedBox(),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              LatoText(
+                                title: 'Session 1',
+                                fontSize: 12,
+                                color: AppColor.clr_F6F4F1,
+                                fontFamily: FontFamily.LatoBold,
+                              ),
+                              LatoText(
+                                title: 'Heal',
+                                fontSize: 16,
+                                color: AppColor.clr_F6F4F1,
+                                fontFamily: FontFamily.LatoBold,
+                              ),
+                              LatoText(
+                                title: 'Ketamine Therapy',
+                                fontSize: 12,
+                                color: AppColor.clr_F6F4F1,
+                                fontFamily: FontFamily.LatoBold,
+                              )
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+
+                // assets/images/Shadow_3.svg
+                SizedBox(height: 20),
               ],
             ),
           ),

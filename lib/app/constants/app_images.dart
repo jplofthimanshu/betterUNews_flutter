@@ -20,7 +20,10 @@ class AppImages {
   static const String profile_image = 'assets/images/profile.svg';
   static const String aurascore_image = 'assets/images/aurascore.png';
   static const String arrowline_image = 'assets/images/arrowline.svg';
-
+  static const String plus_image = 'assets/images/plus.svg';
+  static const String shadow_image = 'assets/images/Shadow.svg';
+  static const String shadow_D6CDC2_image = 'assets/images/Shadow_D6CDC2.svg';
+  static const String vector_image = 'assets/images/Vector.svg';
 
 
 
