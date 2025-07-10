@@ -142,11 +142,3 @@ flutter:
         - asset: assets/fonts/Lato/Lato-Black.ttf
         - asset: assets/fonts/Lato/Lato-BlackItalic.ttf
           style: italic
-
-
-
-
-
-  #
-  # For details regarding fonts from package dependencies,
-  # see https://flutter.dev/to/font-from-package

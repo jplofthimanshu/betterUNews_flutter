@@ -5,11 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:country_picker/country_picker.dart';
 
 class AuthenticationTextfield extends StatelessWidget {
-  final String topLabel; // “floating” label
-  final String placeholder; // hint inside the field
-  final TextEditingController controller; // passed‑in controller
+  final String topLabel;
+  final String placeholder;
+  final TextEditingController controller;
 
-  // Optional styling knobs
   final Color placeholderColor;
   final Color textColor;
   final FontFamily placeholderFont;
@@ -18,7 +17,7 @@ class AuthenticationTextfield extends StatelessWidget {
   final double fontSize;
   final bool isPassword;
   final bool isSecure;
-  final VoidCallback? passworSecure;
+  final VoidCallback? onToggleSecure;
 
   const AuthenticationTextfield({
     super.key,
@@ -33,66 +32,65 @@ class AuthenticationTextfield extends StatelessWidget {
     this.fontSize = 15,
     this.isPassword = false,
     this.isSecure = false,
-    this.passworSecure
+    this.onToggleSecure,
   });
 
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        // Outer border & padding
+        // Text field container
         Container(
           padding: const EdgeInsets.only(top: 10),
-          child: Stack(
-            children: [
-              Container(
-                height: 54,
-                width: double.infinity,
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8),
-                  border: Border.all(width: 1.3, color: AppColor.clr_D5D7DA),
-                ),
-                child: TextField(
-                  controller: controller,
-                  obscureText: obscureText,
-                  style: TextStyle(
-                    fontFamily: textFont.value,
-                    color: textColor,
-                    fontSize: fontSize,
-                  ),
-                  decoration: InputDecoration(
-                    isDense: true,
-                    border: InputBorder.none, // ← no Material border
-                    hintText: placeholder,
-                    hintStyle: TextStyle(
-                      fontFamily: placeholderFont.value,
-                      color: placeholderColor,
-                      fontSize: fontSize,
+          child: Container(
+            height: 54,
+            width: double.infinity,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8),
+              border: Border.all(width: 1.3, color: AppColor.clr_D5D7DA),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 12),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: TextField(
+                      controller: controller,
+                      obscureText: obscureText,
+                      style: TextStyle(
+                        fontFamily: textFont.value,
+                        color: textColor,
+                        fontSize: fontSize,
+                      ),
+                      decoration: InputDecoration(
+                        isDense: true,
+                        border: InputBorder.none,
+                        hintText: placeholder,
+                        hintStyle: TextStyle(
+                          fontFamily: placeholderFont.value,
+                          color: placeholderColor,
+                          fontSize: fontSize,
+                        ),
+                      ),
                     ),
-                    contentPadding: const EdgeInsets.symmetric(horizontal: 12),
                   ),
-                ),
+                  if (isPassword)
+                    GestureDetector(
+                      onTap: onToggleSecure,
+                      child: Icon(
+                        isSecure ? Icons.visibility_off_outlined : Icons.visibility_outlined,
+                        size: 20,
+                        color: AppColor.clr_ACADBC,
+                      ),
+                    ),
+                ],
               ),
-              if (isPassword)
-                Positioned(
-                  top: 0,
-                  bottom: 0,
-                  right: 18,
-                  child: GestureDetector(
-                    onTap: passworSecure,
-                    child: Icon(
-                      isSecure ? Icons.visibility_off_outlined : Icons.visibility_outlined,
-                      size: 20,
-                      color: AppColor.clr_ACADBC,
-                    ),
-                  ),
-                ),
-            ],
+            ),
           ),
         ),
 
-        // Tiny “floating” label above the border
+        // Floating label
         Positioned(
           top: 0,
           left: 12,
@@ -113,7 +111,7 @@ class AuthenticationTextfield extends StatelessWidget {
   }
 }
 
-class AuthenticationTextfield_PhoneNumber extends StatefulWidget {
+class AuthenticationTextfieldPhoneNumber extends StatefulWidget {
   final String topLabel;
   final String placeholder;
   final TextEditingController controller;
@@ -125,7 +123,7 @@ class AuthenticationTextfield_PhoneNumber extends StatefulWidget {
   final bool obscureText;
   final double fontSize;
 
-  const AuthenticationTextfield_PhoneNumber({
+  const AuthenticationTextfieldPhoneNumber({
     super.key,
     required this.topLabel,
     required this.placeholder,
@@ -139,12 +137,12 @@ class AuthenticationTextfield_PhoneNumber extends StatefulWidget {
   });
 
   @override
-  State<AuthenticationTextfield_PhoneNumber> createState() =>
-      _AuthenticationTextfield_PhoneNumberState();
+  State<AuthenticationTextfieldPhoneNumber> createState() =>
+      _AuthenticationTextfieldPhoneNumberState();
 }
 
-class _AuthenticationTextfield_PhoneNumberState
-    extends State<AuthenticationTextfield_PhoneNumber> {
+class _AuthenticationTextfieldPhoneNumberState
+    extends State<AuthenticationTextfieldPhoneNumber> {
   Country selectedCountry = Country(
     phoneCode: '91',
     countryCode: 'IN',
@@ -174,7 +172,7 @@ class _AuthenticationTextfield_PhoneNumberState
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        // Outer border & padding
+        // Phone field container
         Container(
           padding: const EdgeInsets.only(top: 10),
           child: Container(
@@ -187,7 +185,7 @@ class _AuthenticationTextfield_PhoneNumberState
             ),
             child: Row(
               children: [
-                // Country code picker
+                // Country code selector
                 GestureDetector(
                   onTap: _showCountryPicker,
                   child: Container(
@@ -207,29 +205,24 @@ class _AuthenticationTextfield_PhoneNumberState
                             color: widget.textColor,
                           ),
                         ),
-                        const Icon(
-                          Icons.keyboard_arrow_down_outlined,
-                          size: 20,
-                        ),
+                        const Icon(Icons.keyboard_arrow_down_outlined, size: 20),
                       ],
                     ),
                   ),
                 ),
-
                 Container(
-                  padding: EdgeInsets.symmetric(vertical: 10),
+                  padding: const EdgeInsets.symmetric(vertical: 10),
                   child: const VerticalDivider(
                     width: 1,
                     color: AppColor.clr_E9EAEB,
                   ),
                 ),
-
-                // Phone number field
+                // Input field
                 Expanded(
                   child: TextField(
                     controller: widget.controller,
-                    obscureText: widget.obscureText,
                     keyboardType: TextInputType.phone,
+                    obscureText: widget.obscureText,
                     style: TextStyle(
                       fontFamily: widget.textFont.value,
                       color: widget.textColor,
@@ -244,9 +237,7 @@ class _AuthenticationTextfield_PhoneNumberState
                         color: widget.placeholderColor,
                         fontSize: widget.fontSize,
                       ),
-                      contentPadding: const EdgeInsets.symmetric(
-                        horizontal: 12,
-                      ),
+                      contentPadding: const EdgeInsets.symmetric(horizontal: 12),
                     ),
                   ),
                 ),
@@ -254,8 +245,7 @@ class _AuthenticationTextfield_PhoneNumberState
             ),
           ),
         ),
-
-        // Floating top label
+        // Floating label
         Positioned(
           top: 0,
           left: 12,
@@ -275,3 +265,4 @@ class _AuthenticationTextfield_PhoneNumberState
     );
   }
 }
+

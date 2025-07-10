@@ -3,10 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:better_u_news/app/constants/app_colors.dart';
 import 'package:better_u_news/app/constants/app_fonts.dart';
 import 'package:better_u_news/app/constants/app_images.dart';
-import 'package:better_u_news/view/app_component/action_button.dart';
 import 'package:better_u_news/view/app_component/lato_text.dart';
-import 'package:better_u_news/viewmodel/controller/authentication_controller/choosestate_controller.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
@@ -19,13 +16,9 @@ class MiraonboardingScreen extends StatefulWidget {
 
 class _MiraonboardingScreenState extends State<MiraonboardingScreen> {
 
-
-
   @override
   Widget build(BuildContext context) {
-
     double screenWidth = MediaQuery.of(context).size.width;
-
     return Scaffold(
       backgroundColor: AppColor.clr_FEFEFE,
 
@@ -36,7 +29,7 @@ class _MiraonboardingScreenState extends State<MiraonboardingScreen> {
           splashColor: Colors.transparent,
           highlightColor: Colors.transparent,
           hoverColor: Colors.transparent,
-          overlayColor: MaterialStateProperty.all(Colors.transparent),
+          overlayColor: WidgetStateProperty.all(Colors.transparent),
           onTap: () {
             Get.back();
           },
@@ -51,6 +44,7 @@ class _MiraonboardingScreenState extends State<MiraonboardingScreen> {
             ),
           ),
         ),
+        centerTitle: true,
         title: LatoText(
           title: 'Mira',
           fontFamily: FontFamily.LatoBold,
@@ -61,7 +55,7 @@ class _MiraonboardingScreenState extends State<MiraonboardingScreen> {
             splashColor: Colors.transparent,
             highlightColor: Colors.transparent,
             hoverColor: Colors.transparent,
-            overlayColor: MaterialStateProperty.all(Colors.transparent),
+            overlayColor: WidgetStateProperty.all(Colors.transparent),
             onTap: () {
               Get.toNamed(RoutesName.chatHistoryOverlayScreen);
             },
@@ -98,7 +92,7 @@ class _MiraonboardingScreenState extends State<MiraonboardingScreen> {
                   scrollDirection: Axis.horizontal,
                   itemCount: 10,
                   itemBuilder: (context, index) => Container(
-                    height: 72,
+                    height: 62,
                     width: screenWidth*0.7,
                     margin: EdgeInsets.only(right: 8),
                     padding: EdgeInsets.symmetric(horizontal: 16),
@@ -113,9 +107,9 @@ class _MiraonboardingScreenState extends State<MiraonboardingScreen> {
                         LatoText(
                           title: 'AI Suggestion Headline',
                           fontSize: 14,
-                          color: AppColor.clr_181D27,
+                          color: AppColor.clr_000000,
                           fontFamily: FontFamily.LatoBlack,),
-                        SizedBox(height: 4),
+                        SizedBox(height: 10),
                         LatoText(
                           title: 'AI Suggestion Subtext',
                           fontSize: 14,
@@ -132,13 +126,14 @@ class _MiraonboardingScreenState extends State<MiraonboardingScreen> {
         ),
       ),
       bottomNavigationBar: Container(
-        height: 150,
-        color: AppColor.clr_AEAEAE.withOpacity(0.05),
+        height: 135,
+        color: AppColor.clr_AEAEAE.withValues(alpha:0.05),
         child: SafeArea(
             child: Container(
               padding: EdgeInsets.only(left: 20,right: 20,top: 15,bottom: 15),
               child: Column(
                 children: [
+
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -175,16 +170,16 @@ class _MiraonboardingScreenState extends State<MiraonboardingScreen> {
                           ),
                         ],
                       ),
-
                     ],
                   ),
-                  Spacer(),
+                  SizedBox(height: 20,),
                   SvgPicture.asset(
                     AppImages.voiceAnimation_image,
                     height: 30,
                     width: double.maxFinite,
                     fit: BoxFit.fill,
                   ),
+                  SizedBox(height: 20,)
                 ],
               ),
             )

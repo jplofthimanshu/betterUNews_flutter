@@ -1,10 +1,6 @@
-import 'package:better_u_news/viewmodel/controller/authentication_controller/login_controller.dart';
 import 'package:better_u_news/viewmodel/controller/authentication_controller/resetpassword_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:better_u_news/app/routes/route_names.dart';
 import 'package:better_u_news/view/app_component/authentication_textfield.dart';
-import 'package:better_u_news/viewmodel/controller/authentication_controller/signup_controller.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
@@ -24,7 +20,7 @@ class ResetpasswordScreen extends StatefulWidget {
 
 class _ResetpasswordScreenState extends State<ResetpasswordScreen> {
 
-  ResetpasswordController _resetpasswordController = Get.put(ResetpasswordController());
+  final ResetpasswordController _resetpasswordController = Get.put(ResetpasswordController());
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +32,7 @@ class _ResetpasswordScreenState extends State<ResetpasswordScreen> {
           splashColor: Colors.transparent,
           highlightColor: Colors.transparent,
           hoverColor: Colors.transparent,
-          overlayColor: MaterialStateProperty.all(Colors.transparent),
+          overlayColor: WidgetStateProperty.all(Colors.transparent),
           onTap: () {
             Get.back();
           },
@@ -82,7 +78,7 @@ class _ResetpasswordScreenState extends State<ResetpasswordScreen> {
                       placeholder: 'New Password',
                       isPassword: true,
                       isSecure: _resetpasswordController.passwordIsSecure.value,
-                      passworSecure: () {
+                      onToggleSecure: () {
                         _resetpasswordController.passwordIsSecure.value = !_resetpasswordController.passwordIsSecure.value;
                       },
                     ),
@@ -93,7 +89,7 @@ class _ResetpasswordScreenState extends State<ResetpasswordScreen> {
                       placeholder: 'Confirm Password',
                       isPassword: true,
                       isSecure: _resetpasswordController.passwordIsSecure.value,
-                      passworSecure: () {
+                      onToggleSecure: () {
                         _resetpasswordController.passwordIsSecure.value = !_resetpasswordController.passwordIsSecure.value;
                       },
                     ),

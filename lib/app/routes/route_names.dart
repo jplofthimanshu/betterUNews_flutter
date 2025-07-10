@@ -7,10 +7,8 @@ class RoutesName {
   static const String birthDateScreen = '/birthDateScreen';
   static const String miraOnboardingScreen = '/miraOnboardingScreen';
   static const String chatHistoryOverlayScreen = '/chatHistoryOverlayScreen';
-
   static const String loginScreen = '/loginScreen';
   static const String forgotPasswordScreen = '/forgotPasswordScreen';
   static const String resetPasswordScreen = '/resetPasswordScreen';
-
   static const String tabBarScreen = '/tabBarScreen';
 }

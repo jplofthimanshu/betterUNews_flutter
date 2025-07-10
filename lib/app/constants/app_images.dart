@@ -26,7 +26,7 @@ class AppImages {
   static const String vector_image = 'assets/images/Vector.svg';
 
 
-
+  //tab bar
   static const String home_tab = 'assets/images/home_tab.svg';
   static const String journey_tab = 'assets/images/journey_tab.svg';
   static const String mira_tab = 'assets/images/mira_tab.svg';

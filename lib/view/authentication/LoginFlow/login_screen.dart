@@ -2,8 +2,6 @@ import 'package:better_u_news/viewmodel/controller/authentication_controller/log
 import 'package:flutter/material.dart';
 import 'package:better_u_news/app/routes/route_names.dart';
 import 'package:better_u_news/view/app_component/authentication_textfield.dart';
-import 'package:better_u_news/viewmodel/controller/authentication_controller/signup_controller.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
@@ -13,8 +11,6 @@ import '../../../app/constants/app_images.dart';
 import '../../app_component/action_button.dart';
 import '../../app_component/lato_text.dart';
 
-
-
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
@@ -23,11 +19,12 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  LoginController _loginController = Get.put(LoginController());
+  final LoginController _loginController = Get.put(LoginController());
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColor.clr_FFFFFF,
       body: Container(
         width: double.maxFinite,
         height: double.maxFinite,
@@ -174,7 +171,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 placeholder: 'user@gmail.com',
                               ),
                             if (!_loginController.isEmailSelected.value)
-                              AuthenticationTextfield_PhoneNumber(
+                              AuthenticationTextfieldPhoneNumber(
                                 controller: _loginController.phoneCtrl.value,
                                 topLabel: 'Phone',
                                 placeholder: 'user@gmail.com',
@@ -190,7 +187,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     placeholder: 'Password',
                                     isPassword: true,
                                     isSecure: _loginController.passwordIsSecure.value,
-                                    passworSecure: () {
+                                    onToggleSecure: () {
                                       _loginController.passwordIsSecure.value = !_loginController.passwordIsSecure.value;
                                     },
                                   ),
